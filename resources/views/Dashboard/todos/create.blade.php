@@ -53,7 +53,7 @@
 
                         <div class="form-group m-1">
                             <button class="btn btn-success btn-sm" type="submit">Create</button>|<a
-                                href="{{ url(app()->getLocale().'/dashboard') }}" class="p-1">Back to list</a>
+                                href="{{ url('/dashboard') }}" class="p-1">Back to list</a>
                         </div>
                     </form>
                 </div>

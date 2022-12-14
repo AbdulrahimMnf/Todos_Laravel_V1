@@ -8,9 +8,9 @@
             <div id="msg" class="btn btn-sm  btn-icon-text border ml-3">
             </div>
             <button id="btClickMe" onclick="event.preventDefault();document.getElementById('report-form').submit();" class="btn btn-sm bg-white btn-icon-text border ml-3">
-                    <i class="mdi mdi-printer btn-icon-prepend"></i>
-                    Report
-                </button>
+                <i class="mdi mdi-printer btn-icon-prepend"></i>
+                Report
+            </button>
             <form id="report-form" action="{{route('report.index')}}" method="post">
                 @csrf
             </form>
@@ -78,7 +78,6 @@
     </div>
 
 </div>
-
 
 
 <script>

@@ -20,18 +20,18 @@ class Setlocale
     public function handle(Request $request, Closure $next)
     {
 
-        $currentUserInfo = Location::get('176.240.97.123');
-        switch ($currentUserInfo->countryName) {
-            case 'Turkey':
-                URL::defaults(['locale' => 'tr']);
-                break;
-            case 'Egypt':
-                URL::defaults(['locale' => 'ar']);
-                break;
-            default:
-                URL::defaults(['locale' => 'en']);
-                break;
-        }
+        // $currentUserInfo = Location::get('176.240.97.123');
+        // switch ($currentUserInfo->countryName) {
+        //     case 'Turkey':
+        //         URL::defaults(['locale' => 'tr']);
+        //         break;
+        //     case 'Egypt':
+        //         URL::defaults(['locale' => 'ar']);
+        //         break;
+        //     default:
+        //         URL::defaults(['locale' => 'en']);
+        //         break;
+        // }
         if (in_array($request->segment(1), ['ar', 'en', 'tr'])) App::setLocale($request->segment(1));
 
         return $next($request);

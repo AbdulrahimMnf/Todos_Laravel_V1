@@ -20,4 +20,5 @@ class ReportController extends Controller
         $this->dispatch($emailJobs);
         return redirect('dashboard');
     }
+
 }

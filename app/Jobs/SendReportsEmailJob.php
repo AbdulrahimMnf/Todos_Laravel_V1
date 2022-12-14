@@ -3,19 +3,19 @@
 namespace App\Jobs;
 
 use App\Mail\SendReportsEmail;
+use App\Traits\ExportUserInfo;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+
 
 class SendReportsEmailJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, ExportUserInfo;
 
     /**
      * Create a new job instance.
@@ -24,9 +24,15 @@ class SendReportsEmailJob implements ShouldQueue
      */
     public function __construct()
     {
-        //
-    }
+        $mailData = [
+            'title' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
+            'body'  => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, error debitis amet provident id quia modi voluptatem deleniti omnis iure soluta obcaecati eos, enim tempora adipisci, delectus laborum possimus dignissimos.',
+            'link'  =>  $this->Export()
+        ];
 
+        $mail =Auth::user()->email;
+        Mail::to($mail)->send(new SendReportsEmail($mailData));
+    }
     /**
      * Execute the job.
      *
@@ -34,13 +40,17 @@ class SendReportsEmailJob implements ShouldQueue
      */
     public function handle()
     {
-        $mailData = [
-            'title' => 'Mail from ItSolutionStuff.com',
-            'body' => 'This is for testing email using smtp.',
-            // 'link' =>
-        ];
-        Mail::to(Auth::user()->email)->send(new SendReportsEmail($mailData));
-       // Excel::store(new InvoicesExport(2018), 'invoices.xlsx');
+        // $mailData = [
+        //     'title' => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
+        //     'body'  => 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, error debitis amet provident id quia modi voluptatem deleniti omnis iure soluta obcaecati eos, enim tempora adipisci, delectus laborum possimus dignissimos.',
+        //     'link'  =>  $this->Export()
+        // ];
+
+        // $mail =Auth::user()->email; //  '5bc95ff7d43d@drmail.in';
+        // Mail::to($mail)->send(new SendReportsEmail($mailData));
+
+
+        //i think mail come null to here
 
     }
 }

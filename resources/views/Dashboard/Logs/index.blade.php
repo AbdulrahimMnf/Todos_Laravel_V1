@@ -32,7 +32,7 @@
                 </tbody>
                 </table>
             </div>
-            <a href="{{url(app()->getLocale().'/dashboard')}}" class="btn btn-primary">Back To Home</a>
+            <a href="{{url('/dashboard')}}" class="btn btn-primary">Back To Home</a>
         </div>
     </div>
 </section>

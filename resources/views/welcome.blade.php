@@ -15,7 +15,9 @@
     </div>
 </div>
 
+<br>
 
+@include('layouts.review')
 
 
 @endsection

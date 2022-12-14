@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Events\LogEvent;
 use App\Models\Log;
 use Closure;
 use Illuminate\Http\Request;
@@ -19,13 +20,15 @@ class LogMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            Log::create(
-                [
-                    'method'  => $request->method(),
-                    'url'     => $request->url(),
-                    'user_id' => Auth::id(),
-                    'request' => $request,
-                ]
+            event(
+                new LogEvent(
+                        [
+                            'method'  => $request->method(),
+                            'url'     => $request->url(),
+                            'user_id' => Auth::id(),
+                            'request' => $request,
+                        ]
+                    )
             );
         }
         return $next($request);

@@ -14,16 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::group(
-    [
-        'prefix' => "{locale?}/dashboard",
-        'where' => ['locale' => '[a-zA-z]{2}'],
-        'middleware' => ['auth', 'log']
-    ],
-    function () {
-    }
-);
+
+//For multi Lang ...
+
+// Route::group(
+//     [
+//         'prefix' => "{locale?}/dashboard",
+//         'where' => ['locale' => '[a-zA-z]{2}'],
+//         'middleware' => ['auth', 'log']
+//     ],
+//     function () {
+//     }
+// );
 
 
 Auth::routes();

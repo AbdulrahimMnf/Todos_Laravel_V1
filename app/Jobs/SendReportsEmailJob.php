@@ -36,8 +36,11 @@ class SendReportsEmailJob implements ShouldQueue
     {
         $mailData = [
             'title' => 'Mail from ItSolutionStuff.com',
-            'body' => 'This is for testing email using smtp.'
+            'body' => 'This is for testing email using smtp.',
+            // 'link' =>
         ];
         Mail::to(Auth::user()->email)->send(new SendReportsEmail($mailData));
+       // Excel::store(new InvoicesExport(2018), 'invoices.xlsx');
+
     }
 }

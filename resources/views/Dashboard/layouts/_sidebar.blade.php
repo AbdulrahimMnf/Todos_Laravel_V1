@@ -61,10 +61,6 @@
                 <ul class="nav flex-column sub-menu">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('portfolio.info') }}">Portfolio</a>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('logs.index') }}">Log</a>
                     </li>
 

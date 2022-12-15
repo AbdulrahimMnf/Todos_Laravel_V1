@@ -31,23 +31,15 @@ Route::group(
     ],
     function () {
 
-
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
-
-
-
-        Route::get('/portfolio', [PortfolioController::class, 'info'])->name('portfolio.info');
-        Route::post('/portfolio/edit', [PortfolioController::class, 'update'])->name('portfolio.update');
-
 
         Route::get('/logs', [LogController::class, 'index'])->name('logs.index');
 
         Route::get('/buy-me-a-coffe', [PaymentController::class, 'test'])->name('payment.index');
 
-
         Route::get('/todos/complated/{id}', [TodoController::class, 'complated'])->name('todo.complated');
-        Route::post('/report', [ReportController::class, 'index'])->name('report.index');
 
+        Route::post('/report', [ReportController::class, 'index'])->name('report.index');
 
         Route::resources([
             'reviews'  => ReviewController::class,
@@ -56,10 +48,8 @@ Route::group(
             'logs'     => LogController::class,
         ]);
         Route::get('/logs/search/{id}', [LogController::class, 'search'])
-        ->middleware(['role:admin'])
-        ->name('log.search');
-
-
+            ->middleware(['role:admin'])
+            ->name('log.search');
 
         // Role : admin
         Route::group(['middleware' => ['role:admin']], function () {

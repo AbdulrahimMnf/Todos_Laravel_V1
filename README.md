@@ -7,3 +7,5 @@
 * Board And Todo Items
 * Setting and Logs
 * Report and buy to  me coffe
+
+###taked time : 9h

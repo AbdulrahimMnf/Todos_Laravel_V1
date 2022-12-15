@@ -22,5 +22,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'demo@example.com',
             'password'=>Hash::make('demo')
         ])->syncRoles([1]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password'=>Hash::make('test')
+        ]);
     }
 }

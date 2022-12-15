@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
@@ -17,8 +18,9 @@ class DatabaseSeeder extends Seeder
     {
         Role::create(['name'=>'admin']);
         \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Demo User',
+            'email' => 'demo@example.com',
+            'password'=>Hash::make('demo')
         ])->syncRoles([1]);
     }
 }

@@ -17,7 +17,7 @@
                     <hr>
                 </div>
                 @forelse ($boards as $board)
-                @include('Dashboard.layouts.components.model', ['board' => $board])
+                @include('dashboard.layouts.components.model', ['board' => $board])
                 @empty
                 <div class="alert alert-info w-100 text-center">No Boards</div>
                 @endforelse

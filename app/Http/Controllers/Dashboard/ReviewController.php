@@ -15,7 +15,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return view('Dashboard.reviews.index', ['reviews' => Review::latest()->paginate(20)]);
+        return view('dashboard.reviews.index', ['reviews' => Review::latest()->paginate(20)]);
 
     }
 

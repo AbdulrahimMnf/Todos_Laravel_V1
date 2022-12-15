@@ -11,6 +11,6 @@ class PortfolioController extends Controller
 {
     public function info()
     {
-        return view('Dashboard.portfolios.edit', ['portfolio' => User::find(Auth::id())]);
+        return view('dashboard.portfolios.edit', ['portfolio' => User::find(Auth::id())]);
     }
 }

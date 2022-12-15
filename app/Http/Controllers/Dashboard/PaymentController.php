@@ -158,7 +158,7 @@ class PaymentController extends Controller
         $checkoutFormInitialize = \Iyzipay\Model\CheckoutFormInitialize::create($request, $options);
         $a  = $checkoutFormInitialize->getCheckoutFormContent();
 
-        return view('Dashboard.izyco.index', compact('a'));
+        return view('dashboard.izyco.index', compact('a'));
         // return view('index', compact('checkoutFormInitialize'));
     }
 }

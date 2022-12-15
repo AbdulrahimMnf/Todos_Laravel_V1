@@ -32,7 +32,7 @@ class BoardController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.boards.create');
+        return view('dashboard.boards.create');
     }
 
     /**

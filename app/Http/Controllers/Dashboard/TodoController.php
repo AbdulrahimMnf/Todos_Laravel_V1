@@ -97,7 +97,6 @@ class TodoController extends Controller
         if (Auth::id() == $todo->user_id) {
             $todo->fill($request->post())->update();
             $todo->save();
-
             return redirect('dashboard/boards');
         }
     }

@@ -55,6 +55,9 @@ Route::group(
             'todos'    => TodoController::class,
             'logs'     => LogController::class,
         ]);
+        Route::get('/logs/search/{id}', [LogController::class, 'search'])
+        ->middleware(['role:admin'])
+        ->name('log.search');
 
 
 
